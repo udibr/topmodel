@@ -4,3 +4,4 @@ cache.json
 histogram.json
 .*.swp
 .*.swo
+config.yaml
