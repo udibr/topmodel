@@ -18,7 +18,7 @@ def make_points_far(xs, ys, thresholds, min_dist=0.03):
     new_ys = []
     new_thresholds = []
     for x, y, threshold in zip(xs[:-1], ys[:-1], thresholds[:-1]):
-        if y_prev is None or (np.abs(y - y_prev) >= min_dist):
+        if y_prev is None or y is None or (np.abs(y - y_prev) >= min_dist):
             y_prev = y
             new_xs.append(x)
             new_ys.append(y)

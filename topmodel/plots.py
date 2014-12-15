@@ -24,6 +24,7 @@ def _metrics_table(cached_data):
     total = count.sum()
     table = pd.DataFrame({
                          'Precision': cached_data['precisions'],
+                         'Support': cached_data['support'],
                          'Recall/TPR': cached_data['recalls'],
                          'FPR': cached_data['fprs'],
                          'Threshold': cached_data['thresholds'],
@@ -45,6 +46,14 @@ def precision_recall_curve(cached_data, ax=None, label=None):
         precision, recall, thresholds, 'precision', 'recall', ax=ax, label=label)
     return utf8_decode(image_data)
 
+def support_precision_curve(cached_data, ax=None, label=None):
+    thresholds = cached_data[0]['thresholds']
+    precision = [x['precisions'] for x in cached_data]
+    support = [x['support'] for x in cached_data]
+
+    image_data = plot_helpers.plot_xy_bootstrapped(
+        support, precision, thresholds, 'support', 'precision', ax=ax, label=label)
+    return utf8_decode(image_data)
 
 def roc_curve(cached_data, ax=None, label=None):
     thresholds = cached_data[0]['thresholds']

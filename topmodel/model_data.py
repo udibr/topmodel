@@ -65,6 +65,7 @@ class ModelData(object):
                 'trues': hist['trues'],
                 # 3 main metrics
                 'precisions': hmetrics.precisions(hist),
+                'support': hmetrics.support(hist),
                 'recalls': hmetrics.recalls(hist),
                 'fprs': hmetrics.fprs(hist),
                 # extra metrics

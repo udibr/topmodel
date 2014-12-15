@@ -36,6 +36,14 @@ def precisions(hist):
         selected -= hist['totals'][i]
     return ret
 
+def support(hist):
+    ret = []
+    total = sum(hist['totals'])
+    selected = total
+    for i in range(len(hist['probs'])):
+        ret.append(selected * 1.0 / total if selected != 0 else None)
+        selected -= hist['totals'][i]
+    return ret
 
 def marginal_precisions(hist):
     return map(lambda x: x[0] * 1.0 / x[1] if x[1] != 0 else None, zip(hist['trues'], hist['totals']))

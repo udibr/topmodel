@@ -25,14 +25,14 @@ def compare():
 
     _, ax = plt.subplots(figsize=(12, 6))
     for name, cached_data in zip(models, cached_datas):
-        prc = plots.precision_recall_curve(cached_data, ax=ax, label=name)
+        prc = plots.support_precision_curve(cached_data, ax=ax, label=name)
 
     _, ax = plt.subplots(figsize=(12, 6))
     for name, cached_data in zip(models, cached_datas):
         roc = plots.roc_curve(cached_data, ax=ax, label=name)
 
     context = {
-        'precision_recall_curve': prc,
+        'support_precision_curve': prc,
         'roc_curve': roc}
 
     return render_template("compare.html", **context)
@@ -45,7 +45,8 @@ def training(path):
     # print cached_data
 
     context = {
-        'precision_recall_curve': plots.precision_recall_curve(cached_data),
+        # 'precision_recall_curve': plots.precision_recall_curve(cached_data),
+        'support_precision_curve': plots.support_precision_curve(cached_data),
         'roc_curve': plots.roc_curve(cached_data),
         'score_distribution': plots.score_distribution(cached_data[0]),
         'marginal_precision_curve': plots.marginal_precision_curve(cached_data[0]),
