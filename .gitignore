@@ -5,3 +5,4 @@ histogram.json
 .*.swp
 .*.swo
 config.yaml
+.idea/
