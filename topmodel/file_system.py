@@ -26,10 +26,12 @@ class FileSystem(object):
 
 class S3FileSystem(object):
 
-    def __init__(self, bucket_name, aws_access_key_id, aws_secret_access_key):
+    def __init__(self, bucket_name, aws_access_key_id, aws_secret_access_key, is_secure):
         conn = boto.connect_s3(
             aws_access_key_id=aws_access_key_id,
-            aws_secret_access_key=aws_secret_access_key)
+            aws_secret_access_key=aws_secret_access_key,
+            is_secure =is_secure
+        )
         self.bucket = conn.get_bucket(bucket_name)
 
     def read_file(self, path):

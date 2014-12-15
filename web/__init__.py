@@ -20,6 +20,7 @@ def before_request():
         config = settings.read_config('./config.yaml')
         g.file_system = S3FileSystem(config['bucket'],
                                      config['aws_access_key'],
-                                     config['aws_secret_key'])
+                                     config['aws_secret_key'],
+                                     config['is_secure'])
 
 import web.views.pages

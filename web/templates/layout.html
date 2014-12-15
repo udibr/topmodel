@@ -27,7 +27,7 @@
 <nav class="navbar navbar-default" role="navigation">
   <div class="container-fluid">
     <div class="navbar-header">
-      <a class="navbar-brand" href="/">Stripe's Next Top Model</a>
+      <a class="navbar-brand" href="/">Top Model</a>
     </div>
     {% if not precision_recall_curve %}
     <div class="pull-right btn-group">
@@ -61,7 +61,7 @@ function get_selected_models() {
 $('#compare-button').on('click', function() {
   var models = get_selected_models();
   if (models.length <= 1) {
-    alert("Please select at each two models to compare.");
+    alert("Please select at least two models to compare.");
     return;
   }
   window.location = '/compare?model[]='+models.join('&model[]=');
