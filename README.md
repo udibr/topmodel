@@ -10,10 +10,12 @@ You can store your data either locally or in S3.
 
 Here are the graphs topmodel will give you for any binary classifier:
 
+![Precision/support curve](http://imgur.com/Mp0uO5w.png)
+<!---
 #### Precision/recall curve
 
 ![Precision/recall curve](http://i.imgur.com/h2aOeS5.png)
-
+-->
 #### ROC (Receiver operating characteristic) curve
 
 ![ROC curve](http://i.imgur.com/tunfpcu.png)
